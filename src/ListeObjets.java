@@ -54,7 +54,13 @@ public int taille(){
 public void ajoute(Objet x){
       lst.add(x);}
 
-public void retireObjet(int i){
+
+    public void ajouteFirst(Objet x){
+        lst.add(0,x);}
+
+
+
+    public void retireObjet(int i){
    lst.remove(i);
 }
 

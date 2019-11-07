@@ -8,6 +8,7 @@ public class Instance {
     public int nbObjets;
     public ListeObjets lesObjets;
     public int Poidsmax;
+    public Objet objetTranque;
     
     public Instance(int nb, ListeObjets obj, int pmax){
         /**
@@ -28,9 +29,9 @@ public class Instance {
 
 
     public double minorer(){
-        ListeObjets sac =  new ListeObjets();
-        double poids = 0;
+        double poids =0;
         double utilite= 0;
+        ListeObjets sac =  new ListeObjets();
         for(Objet o : lesObjets.getListe()){
             if(poids + o.getPoids() <= Poidsmax){
                 poids= poids + o.getPoids();
@@ -42,6 +43,7 @@ public class Instance {
     }
 
     public double majorer(){
+
         ListeObjets sac = new ListeObjets();
         double poids = 0;
         double utilite = 0;
@@ -50,6 +52,7 @@ public class Instance {
                 double u = ((Poidsmax-poids)/o.getPoids())*o.getUtil();
                 sac.getListe().add(o);
                 utilite = utilite + u;
+                objetTranque = o;
                 break;
             }else{
                     poids = poids + o.getPoids();
@@ -59,6 +62,7 @@ public class Instance {
         }
         return utilite;
     }
+
     
     public void afficheInstance(){
        System.out.println("Nombre Objets : " + nbObjets+" Poids maximum " +Poidsmax+"\n");
@@ -68,6 +72,7 @@ public class Instance {
        System.out.println("Pi/Wi " + lesObjets.afficheWiSurPi());
        System.out.println("minorant: "+minorer());
        System.out.println("majorant: "+ majorer());
+       System.out.println("objet tranqué: "+ objetTranque);
     }
 
     @Override

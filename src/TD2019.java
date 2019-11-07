@@ -20,5 +20,8 @@ public class TD2019 {
       I=xtest.makeInstance();
       I.afficheInstance();
 
+      Arbre a = new Arbre(I,new Noeud(I.minorer(),I.majorer(),I.objetTranque));
+      a.add(I);
+       System.out.println(a.toString());
 }
 }

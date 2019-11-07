@@ -1,19 +1,26 @@
-import java.util.ArrayList;
 
 public class Noeud {
 
     private double minorant;
     private double majorant;
-    private boolean choisi;
-    private Noeud right;
-    private Noeud left;
+    Objet valeurTranque;
+     Noeud right;
+     Noeud left;
 
 
-    public Noeud(double minorant, double majorant, boolean choisi) {
+    public Noeud(double minorant, double majorant,Objet valeurTranque) {
         this.minorant = minorant;
         this.majorant = majorant;
-        this.choisi = choisi;
+        this.valeurTranque = valeurTranque;
         this.right = null;
         this.left = null;
+    }
+
+    public double getMinorant() {
+        return minorant;
+    }
+
+    public double getMajorant() {
+        return majorant;
     }
 }
